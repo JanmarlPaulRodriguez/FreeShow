@@ -28,7 +28,7 @@
     export let contentFileData: ContentFile | null = null
 
     let failed = false
-    if (thumbnail && !thumbnailPath) getThumbnail()
+    if (thumbnail && !thumbnailPath && $mediaOptions.generateThumbnails !== false) getThumbnail()
     async function getThumbnail() {
         failed = false
         thumbnailPath = await loadThumbnail(path)
@@ -62,7 +62,7 @@
 
     const steps = 10
     function move(e: any) {
-        if (!loaded || !videoElem) {
+        if (!loaded || !videoElem || $mediaOptions.videoPreview === false) {
             // if (hover) clearTimeout(enterTimeout)
             hover = false
             return

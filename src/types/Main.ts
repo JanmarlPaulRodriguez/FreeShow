@@ -141,6 +141,9 @@ export interface SlidesOptions {
 export interface MediaOptions {
     columns: number
     mode: "grid" | "list"
+    videoPreview?: boolean
+    generateThumbnails?: boolean
+    frameCycle?: boolean
 }
 
 export interface ActiveEdit {
