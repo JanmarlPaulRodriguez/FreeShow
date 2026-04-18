@@ -1,5 +1,5 @@
-appId: app.freeshow
-productName: FreeShow
+appId: app.freeshow.win
+productName: FreeShow - Word International
 artifactName: FreeShow-${version}-${arch}.${ext}
 
 # WIDEVINE
@@ -26,12 +26,6 @@ win:
     icon: build/public/icon.png
     asarUnpack:
         - "**/node_modules/macadam/**/*.node"
-    azureSignOptions:
-        publisherName: Live Church Solutions
-        endpoint: https://wus2.codesigning.azure.net/
-        certificateProfileName: FreeShow
-        codeSigningAccountName: FreeShow
-
 # linux
 
 linux:
