@@ -13,6 +13,7 @@ jobs:
     runs-on: ${{ matrix.os }}
 
     strategy:
+      fail-fast: false
       matrix:
         os: [windows-latest, ubuntu-latest, macos-latest]
 
@@ -23,16 +24,16 @@ jobs:
       - name: Install Node.js and NPM
         uses: actions/setup-node@v4
         with:
-          node-version: 22
+          node-version: 20
 
       - name: Install libraries (Linux)
         if: matrix.os == 'ubuntu-latest'
         run: |
           sudo apt-get update
-          sudo apt-get install -y libfontconfig1-dev uuid-dev libltc-dev --fix-missing
+          sudo apt-get install -y libfontconfig1-dev uuid-dev libltc-dev libasound2-dev mesa-common-dev --fix-missing
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
       - name: Build app
         env:
