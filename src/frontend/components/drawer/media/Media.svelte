@@ -688,6 +688,13 @@
                 <Icon size={1.2} id="video" white={activeView !== "video"} />
             </MaterialButton>
 
+            <MaterialButton title="media.video_preview" on:click={() => mediaOptions.update((a) => ({ ...a, videoPreview: !(a.videoPreview ?? true) }))}>
+                <Icon size={1.2} id="video" white={!$mediaOptions.videoPreview} />
+            </MaterialButton>
+            <MaterialButton title="media.generate_thumbnails" on:click={() => mediaOptions.update((a) => ({ ...a, generateThumbnails: !(a.generateThumbnails ?? true) }))}>
+                <Icon size={1.2} id="stars" white={!$mediaOptions.generateThumbnails} />
+            </MaterialButton>
+
             <div class="divider"></div>
         {:else}
             <MaterialButton title="media.{activeView}" on:click={() => (activeView = nextActiveView[activeView])}>

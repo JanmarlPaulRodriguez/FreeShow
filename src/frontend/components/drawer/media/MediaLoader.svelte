@@ -98,7 +98,7 @@
         }, time)
     }
 
-    $: useOriginal = hover || loadFullImage || retryCount > MAX_RETRIES || !thumbnailPath
+    $: useOriginal = (hover && ($mediaOptions.videoPreview !== false || type !== "video")) || loadFullImage || retryCount > MAX_RETRIES || !thumbnailPath
 
     // get duration
     $: if (getDuration && type === "video" && thumbnailPath) getVideoDuration()
